@@ -191,7 +191,7 @@ files but no raw data, secrets, caches, or `test-results/`.
 - Generate: `data/demo/failure_events_demo.csv`
 - Generate: `data/demo/manifest.json`
 
-- [ ] **Step 1: Write failing tests for demo filtering**
+- [x] **Step 1: Write failing tests for demo filtering**
 
 Create `tests/test_export_demo_data.py`:
 
@@ -246,7 +246,7 @@ def test_filter_demo_events_rejects_missing_e03() -> None:
         filter_demo_events(frame)
 ```
 
-- [ ] **Step 2: Run the tests and verify they fail**
+- [x] **Step 2: Run the tests and verify they fail**
 
 Run:
 
@@ -256,7 +256,7 @@ py -m pytest tests/test_export_demo_data.py -v
 
 Expected: FAIL because `scripts.export_demo_data` does not exist.
 
-- [ ] **Step 3: Implement `scripts/export_demo_data.py`**
+- [x] **Step 3: Implement `scripts/export_demo_data.py`**
 
 ```python
 #!/usr/bin/env python3
@@ -355,7 +355,7 @@ if __name__ == "__main__":
     raise SystemExit(main())
 ```
 
-- [ ] **Step 4: Run the unit tests**
+- [x] **Step 4: Run the unit tests**
 
 Run:
 
@@ -365,7 +365,7 @@ py -m pytest tests/test_export_demo_data.py -v
 
 Expected: `3 passed`.
 
-- [ ] **Step 5: Generate the demo files**
+- [x] **Step 5: Generate the demo files**
 
 Run:
 
@@ -375,7 +375,7 @@ py scripts/export_demo_data.py
 
 Expected: `event_ids` equals `["E03"]`, telemetry rows are near 60,000, and the generated CSV is below 20 MB.
 
-- [ ] **Step 6: Validate demo bounds and size**
+- [x] **Step 6: Validate demo bounds and size**
 
 Run:
 
@@ -386,7 +386,7 @@ Get-ChildItem data/demo | Select-Object Name,Length
 
 Expected: E03 only, timestamps inside 2020-06-01 through 2020-06-08, and no file over 100 MB.
 
-- [ ] **Step 7: Commit the demo generator and generated files**
+- [x] **Step 7: Commit the demo generator and generated files**
 
 ```powershell
 git add scripts/export_demo_data.py tests/test_export_demo_data.py data/demo

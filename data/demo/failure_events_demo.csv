@@ -1,0 +1,2 @@
+internal_event_id,source_id,start_utc,end_utc,failure_type,severity,duration_hours,report_text,maintenance_remark_utc,remark_relation_to_event,sample_count,first_sample_timestamp_utc,last_sample_timestamp_utc,first_source_index,last_source_index,gap_count,gap_hours_overlap,observed_coverage_pct
+E03,3,2020-06-05T10:00:00Z,2020-06-07T14:30:00Z,Air Leak,High Stress,52.5,Maintenance on 8Jun at 16:00,2020-06-08T16:00:00Z,after_event_end,17315,2020-06-05T10:00:04Z,2020-06-07T14:19:39Z,8908100,9081240,3,4.820555555555556,90.81798941798942

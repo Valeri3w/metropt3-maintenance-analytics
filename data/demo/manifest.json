@@ -1,0 +1,12 @@
+{
+  "demo_start_utc": "2020-06-01T00:00:00+00:00",
+  "demo_end_utc": "2020-06-08T00:00:00+00:00",
+  "event_ids": [
+    "E03"
+  ],
+  "telemetry_rows": 51293,
+  "telemetry_first_timestamp": "2020-06-01 00:32:02",
+  "telemetry_last_timestamp": "2020-06-07 14:19:39",
+  "telemetry_sha256": "5e4e59239fc66a232175c8e0fabb46cabf387fe1cec7135ee4d3b2f0e7945863",
+  "failure_events_sha256": "480e9a3f95473a2f8883f8d36ab753cd5758d51ee9df779326ddf7a7e6ce1e7b"
+}
