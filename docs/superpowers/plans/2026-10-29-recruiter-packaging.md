@@ -403,7 +403,7 @@ git commit -m "feat: add reproducible public demo dataset"
 - Create: `tests/test_load_demo_db.py`
 - Modify: `tests/test_load_db.py`
 
-- [ ] **Step 1: Add a failing test for configurable event count**
+- [x] **Step 1: Add a failing test for configurable event count**
 
 Append to `tests/test_load_db.py`:
 
@@ -419,7 +419,7 @@ def test_load_failure_events_exposes_expected_event_count() -> None:
     assert signature.parameters["expected_events"].default == 4
 ```
 
-- [ ] **Step 2: Run the test and verify it fails**
+- [x] **Step 2: Run the test and verify it fails**
 
 Run:
 
@@ -429,7 +429,7 @@ py -m pytest tests/test_load_db.py::test_load_failure_events_exposes_expected_ev
 
 Expected: FAIL because `expected_events` is missing.
 
-- [ ] **Step 3: Make the event count configurable**
+- [x] **Step 3: Make the event count configurable**
 
 Change the signature in `scripts/load_db.py` from:
 
@@ -458,7 +458,7 @@ Replace the hard-coded four-event check with:
 
 All existing callers keep the default of four.
 
-- [ ] **Step 4: Run loader tests**
+- [x] **Step 4: Run loader tests**
 
 Run:
 
@@ -468,7 +468,7 @@ py -m pytest tests/test_load_db.py -v
 
 Expected: pass, with PostgreSQL integration tests skipped only if the database is unavailable.
 
-- [ ] **Step 5: Create `scripts/load_demo_db.py`**
+- [x] **Step 5: Create `scripts/load_demo_db.py`**
 
 ```python
 #!/usr/bin/env python3
@@ -591,7 +591,7 @@ if __name__ == "__main__":
     raise SystemExit(main())
 ```
 
-- [ ] **Step 6: Add a demo-manifest test**
+- [x] **Step 6: Add a demo-manifest test**
 
 Create `tests/test_load_demo_db.py`:
 
@@ -612,7 +612,7 @@ def test_demo_manifest_identifies_one_complete_week_and_e03() -> None:
     assert manifest["telemetry_rows"] > 0
 ```
 
-- [ ] **Step 7: Run demo-loader tests**
+- [x] **Step 7: Run demo-loader tests**
 
 Run:
 
@@ -622,7 +622,7 @@ py -m pytest tests/test_load_demo_db.py tests/test_load_db.py -v
 
 Expected: pass, with database-dependent tests skipped only when PostgreSQL is unavailable.
 
-- [ ] **Step 8: Commit the demo loader**
+- [x] **Step 8: Commit the demo loader**
 
 ```powershell
 git add scripts/load_db.py scripts/load_demo_db.py tests/test_load_db.py tests/test_load_demo_db.py

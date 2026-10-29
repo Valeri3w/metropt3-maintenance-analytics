@@ -214,12 +214,18 @@ def upsert_asset(
     )
 
 
-def load_failure_events(connection: Connection[Any], failure_csv: Path) -> int:
+def load_failure_events(
+    connection: Connection[Any],
+    failure_csv: Path,
+    expected_events: int = 4,
+) -> int:
     with failure_csv.open("r", encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))
 
-    if len(rows) != 4:
-        raise ValueError(f"Expected four failure events, found {len(rows)}.")
+    if len(rows) != expected_events:
+        raise ValueError(
+            f"Expected {expected_events} failure events, found {len(rows)}."
+        )
 
     source_id_seen: Counter[int] = Counter()
     connection.execute("TRUNCATE TABLE failure_events")

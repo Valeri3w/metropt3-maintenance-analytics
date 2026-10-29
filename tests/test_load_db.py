@@ -1,10 +1,15 @@
+import inspect
 import os
 from pathlib import Path
 
 import psycopg
 import pytest
 
-from scripts.load_db import DEFAULT_DSN, database_has_complete_load
+from scripts.load_db import (
+    DEFAULT_DSN,
+    database_has_complete_load,
+    load_failure_events,
+)
 
 
 DSN = os.getenv("DATABASE_URL", DEFAULT_DSN)
@@ -37,3 +42,9 @@ def test_complete_load_detection_uses_expected_telemetry_and_event_counts() -> N
         assert not database_has_complete_load(connection, 1_516_949)
     finally:
         connection.close()
+
+
+def test_load_failure_events_exposes_expected_event_count() -> None:
+    signature = inspect.signature(load_failure_events)
+
+    assert signature.parameters["expected_events"].default == 4
