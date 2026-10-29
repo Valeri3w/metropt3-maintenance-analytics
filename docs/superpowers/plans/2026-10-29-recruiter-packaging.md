@@ -901,7 +901,7 @@ git commit -m "docs: add hosted demo screenshot"
 - Create: `docs/resume_bullets.md`
 - Create: `docs/deployment.md`
 
-- [ ] **Step 1: Insert the recruiter-first block into `README.md`**
+- [x] **Step 1: Insert the recruiter-first block into `README.md`**
 
 Insert immediately after the existing project title:
 
@@ -919,7 +919,7 @@ Insert immediately after the existing project title:
 
 Keep existing detailed README sections below this block. After deployment, Task 8 replaces the deployment link with the actual public Demo URL.
 
-- [ ] **Step 2: Create `docs/case_study.md`**
+- [x] **Step 2: Create `docs/case_study.md`**
 
 ```markdown
 # 工业设备维护数据分析平台案例
@@ -952,7 +952,7 @@ Keep existing detailed README sections below this block. After deployment, Task 
 只有一台设备和 4 次故障；不计算 OEE、MTTR 或可用率；不提供预测、诊断、成本节省或车队推广结论。在线 Demo 使用完整代表性周，全量结论保留在仓库证据中。
 ```
 
-- [ ] **Step 3: Create `docs/demo_script.md`**
+- [x] **Step 3: Create `docs/demo_script.md`**
 
 ```markdown
 # 90 秒演示脚本
@@ -982,7 +982,7 @@ Keep existing detailed README sections below this block. After deployment, Task 
 打开 `周报导出`，展示 HTML 下载，然后说明：“这不是预测，也不计算 OEE、MTTR 或可用率。项目价值是口径统一、查询可复现和记录可追溯。”
 ```
 
-- [ ] **Step 4: Create `docs/resume_bullets.md`**
+- [x] **Step 4: Create `docs/resume_bullets.md`**
 
 ```markdown
 # 简历项目条目
@@ -998,7 +998,7 @@ Keep existing detailed README sections below this block. After deployment, Task 
 - 通过 32 项自动化测试和 n=1 人工/平台对比验证结果，明确区分标注异常区间、停机、维修时间与预测能力边界。
 ```
 
-- [ ] **Step 5: Create the initial `docs/deployment.md`**
+- [x] **Step 5: Create the initial `docs/deployment.md`**
 
 ```markdown
 # 零成本公开部署
@@ -1042,7 +1042,7 @@ Keep existing detailed README sections below this block. After deployment, Task 
 - 公开 Demo 固定为一个完整周，并显示代表性子集提示。
 ```
 
-- [ ] **Step 6: Validate documentation links and banned claims**
+- [x] **Step 6: Validate documentation links and banned claims**
 
 Run:
 
@@ -1052,7 +1052,7 @@ rg -n "OEE|MTTR|availability|可用率|预测|诊断|成本节省|MBTF|MTBF" REA
 
 Expected: terms appear only in explicit limitation or non-goal statements.
 
-- [ ] **Step 7: Commit recruiter documentation**
+- [x] **Step 7: Commit recruiter documentation**
 
 ```powershell
 git add README.md docs/case_study.md docs/demo_script.md docs/resume_bullets.md docs/deployment.md
