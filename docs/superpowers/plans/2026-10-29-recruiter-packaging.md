@@ -822,7 +822,7 @@ git commit -m "feat: support hosted secrets and demo mode"
 **Files:**
 - Generate: `artifacts/screenshots/demo-subset-desktop.png`
 
-- [ ] **Step 1: Start an isolated PostgreSQL demo project**
+- [x] **Step 1: Start an isolated PostgreSQL demo project**
 
 Run:
 
@@ -834,7 +834,7 @@ docker compose -p metropt3-demo ps
 
 Expected: `metropt3-demo-postgres-1` is healthy on host port `5436`.
 
-- [ ] **Step 2: Load the demo week into the isolated database**
+- [x] **Step 2: Load the demo week into the isolated database**
 
 Run:
 
@@ -844,7 +844,7 @@ py scripts/load_demo_db.py --dsn postgresql://metropt:metropt@127.0.0.1:5436/met
 
 Expected: status `ok`, `event_ids: ["E03"]`, and a row count matching `data/demo/manifest.json`.
 
-- [ ] **Step 3: Start the demo app in a separate terminal**
+- [x] **Step 3: Start the demo app in a separate terminal**
 
 Run:
 
@@ -856,7 +856,7 @@ py -m streamlit run app.py --server.port 8502 --server.headless true
 
 Expected: Streamlit reports `http://localhost:8502`.
 
-- [ ] **Step 4: Verify health and capture the screenshot**
+- [x] **Step 4: Verify health and capture the screenshot**
 
 In another terminal, run:
 
@@ -867,13 +867,13 @@ npx playwright screenshot --viewport-size="1440,900" "http://127.0.0.1:8502" art
 
 Expected: health returns `ok`; the screenshot shows the subset notice and E03.
 
-- [ ] **Step 5: Inspect the image**
+- [x] **Step 5: Inspect the image**
 
 Open `artifacts/screenshots/demo-subset-desktop.png`.
 
 Expected: the page clearly says the demo is a representative week and does not imply that the one-week subset is the full dataset.
 
-- [ ] **Step 6: Stop the demo app and isolated project**
+- [x] **Step 6: Stop the demo app and isolated project**
 
 Stop the Streamlit terminal with `Ctrl+C`, then run:
 
@@ -883,7 +883,7 @@ docker compose -p metropt3-demo down -v
 
 Expected: the isolated project is removed and the full local `metropt3` database is untouched.
 
-- [ ] **Step 7: Commit the screenshot**
+- [x] **Step 7: Commit the screenshot**
 
 ```powershell
 git add artifacts/screenshots/demo-subset-desktop.png
