@@ -1,0 +1,119 @@
+{
+  "experiment": "personal_n_1_instrumented_excel_self_experiment",
+  "disclosure": "This is not a user study. It measures one scripted spreadsheet workflow and does not estimate a population-level time saving.",
+  "week_started_at_utc": "2020-06-01T00:00:00Z",
+  "week_ended_at_utc": "2020-06-08T00:00:00Z",
+  "tool": "Microsoft Excel 16.0 COM automation",
+  "started_at_utc": "2026-10-29T05:46:05.4854176+00:00",
+  "completed_at_utc": "2026-10-29T05:46:14.1203089+00:00",
+  "elapsed_seconds": 8.632,
+  "operation_count": 16,
+  "answers": {
+    "weekly_event_count": 1,
+    "longest_event_id": "E03",
+    "longest_duration_hours": 52.5,
+    "highest_duration_type": "Air Leak",
+    "highest_type_duration_hours": 52.5
+  },
+  "traceable_to_source_events": true,
+  "traceability_note": "The workbook retains event IDs, source report timestamps, and maintenance remarks, but it does not independently reconstruct all raw telemetry gaps.",
+  "steps": [
+    {
+      "order": 1,
+      "action": "Launch Excel and create workbook",
+      "elapsed_ms": 10.3,
+      "evidence": "Excel COM session created"
+    },
+    {
+      "order": 2,
+      "action": "Create the four-event source table",
+      "elapsed_ms": 3366.0,
+      "evidence": "Four audited failure rows"
+    },
+    {
+      "order": 3,
+      "action": "Calculate annotated duration",
+      "elapsed_ms": 4674.4,
+      "evidence": "End time minus start time, converted to hours"
+    },
+    {
+      "order": 4,
+      "action": "Derive Monday week bucket",
+      "elapsed_ms": 4843.7,
+      "evidence": "Formula subtracts weekday offset from start time"
+    },
+    {
+      "order": 5,
+      "action": "Set selectable report week",
+      "elapsed_ms": 4846.8,
+      "evidence": "2020-06-01 through 2020-06-08 UTC"
+    },
+    {
+      "order": 6,
+      "action": "Classify events into the selected week",
+      "elapsed_ms": 4888.7,
+      "evidence": "Start timestamp uses a half-open weekly range"
+    },
+    {
+      "order": 7,
+      "action": "Count annotated events in the week",
+      "elapsed_ms": 4890.0,
+      "evidence": "COUNTIF over the in-week flag"
+    },
+    {
+      "order": 8,
+      "action": "Find maximum annotated duration",
+      "elapsed_ms": 4892.3,
+      "evidence": "MAXIFS restricted to the selected week"
+    },
+    {
+      "order": 9,
+      "action": "Identify the longest event",
+      "elapsed_ms": 4896.2,
+      "evidence": "INDEX/MATCH on week flag and maximum duration"
+    },
+    {
+      "order": 10,
+      "action": "Read the longest event failure type",
+      "elapsed_ms": 4898.9,
+      "evidence": "Lookup by event ID"
+    },
+    {
+      "order": 11,
+      "action": "Aggregate weekly duration by failure type",
+      "elapsed_ms": 4901.4,
+      "evidence": "SUMIFS by type and week flag"
+    },
+    {
+      "order": 12,
+      "action": "Read the normalized answer pair",
+      "elapsed_ms": 4904.8,
+      "evidence": "Both fixed questions answered from source event IDs"
+    },
+    {
+      "order": 13,
+      "action": "Prepare previous-event interval and gap evidence",
+      "elapsed_ms": 4922.2,
+      "evidence": "Source failure ordering and audited gap overlap"
+    },
+    {
+      "order": 14,
+      "action": "Add method and limitation notes",
+      "elapsed_ms": 4933.0,
+      "evidence": "Same-week, event-level n=1 comparison"
+    },
+    {
+      "order": 15,
+      "action": "Calculate workbook and save evidence",
+      "elapsed_ms": 4941.8,
+      "evidence": "C:\\Users\\mengm\\OneDrive\\项目1\\artifacts\\business_comparison\\manual_week_20200601.xlsx"
+    },
+    {
+      "order": 16,
+      "action": "Capture normalized answers",
+      "elapsed_ms": 8628.7,
+      "evidence": "Weekly answers read from formula cells"
+    }
+  ],
+  "workbook": "C:\\Users\\mengm\\OneDrive\\项目1\\artifacts\\business_comparison\\manual_week_20200601.xlsx"
+}

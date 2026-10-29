@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetroPT-3 维护周报</title>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0; background: #f4f6f3; color: #17201c;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    main { max-width: 1180px; margin: 32px auto; padding: 0 28px 48px; }
+    header {
+      border-left: 5px solid #237a57; padding: 4px 0 4px 18px;
+      margin-bottom: 24px;
+    }
+    h1 { margin: 0 0 4px; font-size: 30px; }
+    h2 { margin-top: 30px; font-size: 20px; color: #185c43; }
+    .meta, .note { color: #516259; }
+    .kpis {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px; margin: 20px 0;
+    }
+    .kpi, .quality {
+      background: #fff; border: 1px solid #d7dfda; padding: 16px;
+    }
+    .kpi strong { display: block; font-size: 22px; color: #14573e; }
+    .kpi span { font-size: 13px; color: #5a685f; }
+    table { width: 100%; border-collapse: collapse; background: #fff; font-size: 14px; }
+    th, td { border: 1px solid #d7dfda; padding: 9px 10px; text-align: left; }
+    th { background: #e9f0eb; }
+    .quality { border-left: 4px solid #b37a20; }
+    ul { padding-left: 22px; }
+    .empty { background: #fff; padding: 18px; border: 1px solid #d7dfda; }
+    @media (max-width: 760px) {
+      main { margin: 20px auto; padding: 0 14px 32px; }
+      .kpis { grid-template-columns: 1fr 1fr; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>MetroPT-3 维护周报</h1>
+    <div class="meta">2020-06-01 00:00 UTC 至
+      2020-06-08 00:00 UTC · 单台空压机 · 时区 UTC</div>
+  </header>
+  <section class="kpis">
+    <div class="kpi"><strong>1</strong><span>标注故障事件</span></div>
+    <div class="kpi"><strong>52.5000 h</strong><span>平均标注故障持续时长</span></div>
+    <div class="kpi"><strong>52.5000 h</strong><span>最长标注故障</span></div>
+    <div class="kpi"><strong>37.1714%</strong><span>异常区间占有效监测时长</span></div>
+  </section>
+  <h2>故障事件</h2>
+  <table><thead><tr><th>事件</th><th>类型</th><th>严重程度</th><th>开始</th><th>结束</th><th>持续</th><th>上一事件</th><th>标注故障间隔</th><th>缺口重叠</th><th>维护备注</th></tr></thead><tbody><tr><td>E03</td><td>Air Leak</td><td>High Stress</td><td>2020-06-05 10:00 UTC</td><td>2020-06-07 14:30 UTC</td><td>52.5000 h</td><td>E02</td><td>148.0000 h</td><td>4.8206 h</td><td>Maintenance on 8Jun at 16:00</td></tr></tbody></table>
+  <h2>数据质量提示</h2>
+  <div class="quality">
+    <p>本期缺口 10 个，未观测
+      26.7622 h，
+      日历覆盖率 84.0701%。</p>
+    <p>缺口区间不插值、不补造遥测；比例指标使用扣除缺口后的有效监测时长。</p>
+  </div>
+  <h2>口径与限制</h2>
+  <ul>
+    <li>标注异常区间不等同于设备停机、维修开始或维修结束。</li>
+    <li>相邻事件的间隔仅称“标注故障间隔”。</li>
+    <li>采样约 0.1 Hz；原始无时区时间戳按 UTC 工作解释。</li>
+    <li>仅一台设备，不做多设备排名。</li>
+    <li>维护备注仅作原文保留，不构造维修工单闭环。</li>
+  </ul>
+  <h2>Known Issues</h2>
+  <ul>
+    <li>来源未明确声明原始时间戳时区。</li>
+    <li><code>Caudal_impulses</code> 的公开说明与实际 0/1 脉冲值存在语义冲突。</li>
+    <li>遥测存在采集缺口，跨缺口连续观测假设不成立。</li>
+  </ul>
+  <p class="note">数据源：UCI MetroPT-3，DOI 10.24432/C5VW3R。</p>
+</main>
+</body>
+</html>

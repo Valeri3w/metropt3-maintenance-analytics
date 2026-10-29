@@ -46,7 +46,7 @@ The existing SQL files, metric functions, chart logic, audit report, and weekly 
 - Create: `LICENSE`
 - Create: `docs/data_source.md`
 
-- [ ] **Step 1: Create `.gitignore`**
+- [x] **Step 1: Create `.gitignore`**
 
 ```gitignore
 __pycache__/
@@ -68,7 +68,7 @@ data/raw/
 Thumbs.db
 ```
 
-- [ ] **Step 2: Create `.dockerignore`**
+- [x] **Step 2: Create `.dockerignore`**
 
 ```dockerignore
 .git
@@ -94,12 +94,12 @@ secret coverage. Do not exclude `data/raw` as a directory; the current full-data
 Dockerfile needs the raw CSV and PDF for local reproduction. The source ZIP,
 tests, and generated screenshots are not Docker build inputs.
 
-- [ ] **Step 3: Create MIT `LICENSE`**
+- [x] **Step 3: Create MIT `LICENSE`**
 
 ```text
 MIT License
 
-Copyright (c) 2026 Xinyue Fan
+Copyright (c) 2026 The MetroPT-3 Maintenance Analytics Project Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -120,7 +120,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-- [ ] **Step 4: Create `docs/data_source.md`**
+- [x] **Step 4: Create `docs/data_source.md`**
 
 ```markdown
 # Data Source and Licensing
@@ -148,7 +148,7 @@ relicense the MetroPT-3 source dataset. Source-data use remains subject to the
 provider's terms and citation requirements.
 ```
 
-- [ ] **Step 5: Verify large files and secrets are ignored**
+- [x] **Step 5: Verify large files and secrets are ignored**
 
 Run:
 
@@ -161,7 +161,7 @@ git check-ignore -v test-results/.last-run.json
 
 Expected: all four paths are ignored.
 
-- [ ] **Step 6: Commit the existing project baseline with repository hygiene**
+- [x] **Step 6: Commit the existing project baseline with repository hygiene**
 
 The repository currently tracks only the approved design document. Stage the
 complete existing application, SQL, tests, audit evidence, and package files by

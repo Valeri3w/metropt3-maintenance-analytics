@@ -1,0 +1,5 @@
+internal_event_id,source_id,start_utc,end_utc,failure_type,severity,duration_hours,report_text,maintenance_remark_utc,remark_relation_to_event,sample_count,first_sample_timestamp_utc,last_sample_timestamp_utc,first_source_index,last_source_index,gap_count,gap_hours_overlap,observed_coverage_pct
+E01,1,2020-04-18T00:00:00Z,2020-04-18T23:59:00Z,Air Leak,High Stress,23.983333333333334,,,,8657,2020-04-18T00:00:01Z,2020-04-18T23:58:56Z,5625640,5712200,1,0.095,99.6038915913829
+E02,1,2020-05-29T23:30:00Z,2020-05-30T06:00:00Z,Air Leak,High Stress,6.5,Maintenance on 30Apr at 12:00,2020-04-30T12:00:00Z,before_event_end,2360,2020-05-29T23:30:08Z,2020-05-30T05:59:54Z,8407400,8430990,0,0.0,100.0
+E03,3,2020-06-05T10:00:00Z,2020-06-07T14:30:00Z,Air Leak,High Stress,52.5,Maintenance on 8Jun at 16:00,2020-06-08T16:00:00Z,after_event_end,17315,2020-06-05T10:00:04Z,2020-06-07T14:19:39Z,8908100,9081240,3,4.820555555555556,90.81798941798942
+E04,4,2020-07-15T14:30:00Z,2020-07-15T19:00:00Z,Air Leak,High Stress,4.5,Maintenance on 16Jul at 00:00,2020-07-16T00:00:00Z,after_event_end,1622,2020-07-15T14:30:00Z,2020-07-15T19:00:00Z,11710930,11727140,1,0.035833333333333335,99.20370370370371

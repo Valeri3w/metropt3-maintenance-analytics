@@ -1,0 +1,68 @@
+name: metropt3
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: metropt
+      POSTGRES_USER: metropt
+      POSTGRES_PASSWORD: metropt
+    ports:
+      - "${METROPT_DB_PORT:-5434}:5432"
+    volumes:
+      - metropt_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U metropt -d metropt"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  loader:
+    build:
+      context: .
+    image: metropt3-app:local
+    command:
+      - python
+      - scripts/load_db.py
+      - --apply-schema
+      - --apply-metrics
+      - --skip-existing
+      - --wait-seconds
+      - "120"
+      - --dsn
+      - postgresql://metropt:metropt@postgres:5432/metropt
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  streamlit:
+    image: metropt3-app:local
+    command:
+      - streamlit
+      - run
+      - app.py
+      - --server.address=0.0.0.0
+      - --server.port=8501
+      - --server.headless=true
+    environment:
+      DATABASE_URL: postgresql://metropt:metropt@postgres:5432/metropt
+    ports:
+      - "${METROPT_APP_PORT:-8501}:8501"
+    depends_on:
+      loader:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=3)"
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+volumes:
+  metropt_pgdata:

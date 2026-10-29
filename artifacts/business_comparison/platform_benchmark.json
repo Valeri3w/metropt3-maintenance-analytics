@@ -1,0 +1,75 @@
+{
+  "experiment": "personal_n_1_platform_browser_self_experiment",
+  "disclosure": "This is not a user study. It measures one instrumented browser workflow and does not include learning, interpretation, or manual data-entry time. It does not estimate a population-level time saving.",
+  "tool": "Playwright 1.x with Microsoft Edge",
+  "application_url": "http://127.0.0.1:8501",
+  "week_started_at_utc": "2020-06-01T00:00:00Z",
+  "week_ended_at_utc": "2020-06-08T00:00:00Z",
+  "selected_date_range_note": "The UI date range is inclusive, so 2020-06-01 through 2020-06-07 represents the half-open UTC week ending at 2020-06-08T00:00:00Z.",
+  "started_at_utc": "2026-10-29T05:53:13.846Z",
+  "completed_at_utc": "2026-10-29T05:53:18.472Z",
+  "elapsed_seconds": 4.626,
+  "operation_count": 7,
+  "answers": {
+    "weekly_event_count": 1,
+    "longest_event_id": "E03",
+    "longest_duration_hours": 52.5,
+    "highest_duration_type": "Air Leak",
+    "highest_type_duration_hours": 52.5
+  },
+  "traceable_to_source_records": true,
+  "traceability_evidence": {
+    "source_index_range": "8908100-9081240",
+    "csv_row_number_range": "890811-908125",
+    "telemetry_rows_in_annotation": 17315,
+    "overlapping_gap_count": 3
+  },
+  "artifacts": {
+    "screenshot": "C:\\Users\\mengm\\OneDrive\\项目1\\artifacts\\screenshots\\platform-benchmark-final.png",
+    "downloaded_html_report": "C:\\Users\\mengm\\OneDrive\\项目1\\artifacts\\business_comparison\\platform_week_20200601.html"
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "Open the platform",
+      "elapsed_ms": 626.3,
+      "evidence": "Streamlit dashboard loaded with 1,516,948 telemetry rows and 4 source events"
+    },
+    {
+      "order": 2,
+      "action": "Select the fixed week",
+      "elapsed_ms": 3791.9,
+      "evidence": "Date controls set to 2020-06-01 through 2020-06-07 inclusive, representing the half-open UTC week 2020-06-01T00:00Z to 2020-06-08T00:00Z"
+    },
+    {
+      "order": 3,
+      "action": "Verify the selected-week metrics",
+      "elapsed_ms": 4008.5,
+      "evidence": "One event; average and longest annotated duration are both 52.50 h; E03 is Air Leak; annotated share is 37.17% of effective monitoring time"
+    },
+    {
+      "order": 4,
+      "action": "Open E03 event trace",
+      "elapsed_ms": 4106.2,
+      "evidence": "Source indices 8908100-9081240, CSV rows 890811-908125, 17,315 telemetry rows, and 3 overlapping gaps are visible"
+    },
+    {
+      "order": 5,
+      "action": "Open the weekly report",
+      "elapsed_ms": 4227.9,
+      "evidence": "The report answers both fixed questions: E03 is the longest event at 52.50 h, and Air Leak has the highest cumulative duration at 52.50 h"
+    },
+    {
+      "order": 6,
+      "action": "Download and inspect the HTML report",
+      "elapsed_ms": 4502,
+      "evidence": "Downloaded report is non-empty and contains E03, Air Leak, 52.5000 h, and the 2020-06-01/2020-06-08 half-open UTC bounds"
+    },
+    {
+      "order": 7,
+      "action": "Capture final evidence",
+      "elapsed_ms": 4625.6,
+      "evidence": "Saved the final browser screenshot and exported HTML report"
+    }
+  ]
+}
