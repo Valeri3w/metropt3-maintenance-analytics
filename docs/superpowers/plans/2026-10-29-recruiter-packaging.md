@@ -1169,7 +1169,7 @@ Expected: Streamlit redeploys from the new commit and the README contains the wo
 **Files:**
 - Modify: `README.md` only if verification finds a broken link or incorrect statement.
 
-- [ ] **Step 1: Run the complete test suite**
+- [x] **Step 1: Run the complete test suite**
 
 Run:
 
@@ -1183,7 +1183,7 @@ summary line. If the count differs, stop and reconcile the added tests before
 continuing. Then update any stale test-count statement in `README.md` and
 `docs/resume_bullets.md` to the observed result.
 
-- [ ] **Step 2: Run focused packaging tests**
+- [x] **Step 2: Run focused packaging tests**
 
 Run:
 
@@ -1193,7 +1193,7 @@ py -m pytest tests/test_export_demo_data.py tests/test_load_demo_db.py tests/tes
 
 Expected: all packaging tests pass.
 
-- [ ] **Step 3: Verify secrets and raw data are not tracked**
+- [x] **Step 3: Verify secrets and raw data are not tracked**
 
 Run:
 
@@ -1203,7 +1203,7 @@ git ls-files | Select-String -Pattern '^data/raw/|secrets.toml$|\.dump$'
 
 Expected: no output.
 
-- [ ] **Step 4: Verify repository file sizes**
+- [x] **Step 4: Verify repository file sizes**
 
 Run:
 
@@ -1233,7 +1233,7 @@ npx playwright screenshot --viewport-size="1440,900" "$env:PUBLIC_DEMO_URL" arti
 
 Expected: the public app loads with the representative-subset notice and the Demo week visible.
 
-- [ ] **Step 7: Inspect final README links**
+- [x] **Step 7: Inspect final README links**
 
 Run against the recruiter-facing documents only. The implementation plan
 intentionally contains deployment placeholders and is not part of the public
@@ -1257,7 +1257,7 @@ git push
 If neither documentation file needed correction, the commit still records the
 new public-demo screenshot.
 
-- [ ] **Step 9: Confirm clean Git state**
+- [x] **Step 9: Confirm clean Git state**
 
 Run:
 

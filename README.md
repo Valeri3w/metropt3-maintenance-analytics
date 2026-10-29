@@ -319,7 +319,7 @@ $env:DATABASE_URL = 'postgresql://metropt:metropt@127.0.0.1:5434/metropt'
 py -m pytest -q
 ```
 
-当前完整测试结果记录为 `23 passed`。最终验收时以本次实际运行输出为准。
+当前完整测试结果记录为 `32 passed`。最终验收时以本次实际运行输出为准。
 
 数据库快速核验：
 
