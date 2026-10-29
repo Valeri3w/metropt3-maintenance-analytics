@@ -17,6 +17,16 @@ import streamlit as st
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+from metropt.runtime import (  # noqa: E402
+    apply_secret_environment,
+    demo_mode_from_environment,
+)
+
+try:
+    apply_secret_environment(st.secrets)
+except Exception:
+    pass
+
 from metropt.dashboard import (  # noqa: E402
     build_pareto_figure,
     build_timeline_figure,
@@ -303,6 +313,12 @@ st.markdown(
     '<div class="subtitle">单台地铁空压机 · 源数据、SQL 指标、原始记录追溯与维护周报</div>',
     unsafe_allow_html=True,
 )
+if demo_mode_from_environment():
+    st.info(
+        "在线 Demo 使用 2020-06-01 至 2020-06-07 的代表性完整周数据。"
+        "全量 4 次故障与完整审计证据见 README。",
+        icon=":material/info:",
+    )
 
 with st.sidebar:
     st.markdown("### 分析周期")

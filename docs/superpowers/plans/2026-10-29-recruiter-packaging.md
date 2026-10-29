@@ -639,7 +639,7 @@ git commit -m "feat: add dedicated demo database loader"
 - Create: `.streamlit/secrets.toml.example`
 - Modify: `app.py`
 
-- [ ] **Step 1: Write failing runtime tests**
+- [x] **Step 1: Write failing runtime tests**
 
 Create `tests/test_runtime.py`:
 
@@ -678,7 +678,7 @@ def test_demo_mode_from_environment_reads_the_runtime_value(monkeypatch) -> None
     assert demo_mode_from_environment() is True
 ```
 
-- [ ] **Step 2: Run tests and verify they fail**
+- [x] **Step 2: Run tests and verify they fail**
 
 Run:
 
@@ -688,7 +688,7 @@ py -m pytest tests/test_runtime.py -v
 
 Expected: FAIL because `metropt.runtime` does not exist.
 
-- [ ] **Step 3: Implement `src/metropt/runtime.py`**
+- [x] **Step 3: Implement `src/metropt/runtime.py`**
 
 ```python
 """Runtime configuration shared by local and hosted application runs."""
@@ -727,7 +727,7 @@ def demo_mode_from_environment() -> bool:
     return is_demo_mode(os.getenv("METROPT_DEMO_MODE"))
 ```
 
-- [ ] **Step 4: Run runtime tests**
+- [x] **Step 4: Run runtime tests**
 
 Run:
 
@@ -737,7 +737,7 @@ py -m pytest tests/test_runtime.py -v
 
 Expected: `3 passed`.
 
-- [ ] **Step 5: Apply secrets before data access in `app.py`**
+- [x] **Step 5: Apply secrets before data access in `app.py`**
 
 After `sys.path.insert(...)`, add:
 
@@ -755,7 +755,7 @@ except Exception:
 
 This block must appear before imports from `metropt.data_access`, because `data_access` reads `DATABASE_URL`.
 
-- [ ] **Step 6: Add the persistent demo notice after the subtitle**
+- [x] **Step 6: Add the persistent demo notice after the subtitle**
 
 Add after the existing subtitle `st.markdown(...)` block:
 
@@ -768,14 +768,14 @@ if demo_mode_from_environment():
     )
 ```
 
-- [ ] **Step 7: Create `.streamlit/secrets.toml.example`**
+- [x] **Step 7: Create `.streamlit/secrets.toml.example`**
 
 ```toml
 DATABASE_URL = "postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=require"
 METROPT_DEMO_MODE = "true"
 ```
 
-- [ ] **Step 8: Run runtime and dashboard tests**
+- [x] **Step 8: Run runtime and dashboard tests**
 
 Run:
 
@@ -785,7 +785,7 @@ py -m pytest tests/test_runtime.py tests/test_dashboard.py -v
 
 Expected: all tests pass.
 
-- [ ] **Step 9: Commit runtime configuration**
+- [x] **Step 9: Commit runtime configuration**
 
 ```powershell
 git add app.py src/metropt/runtime.py tests/test_runtime.py .streamlit/secrets.toml.example
