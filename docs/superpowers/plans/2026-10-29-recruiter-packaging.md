@@ -1073,7 +1073,7 @@ git commit -m "docs: add recruiter-facing project package"
 - `DEMO_DATABASE_URL`: Neon pooled PostgreSQL connection string ending with `sslmode=require`.
 - `PUBLIC_DEMO_URL`: HTTPS URL returned by Streamlit Community Cloud.
 
-- [ ] **Step 1: Create the public GitHub repository**
+- [x] **Step 1: Create the public GitHub repository**
 
 In GitHub, create a public repository named `metropt3-maintenance-analytics`. Do not initialize it with a README, license, or ignore file.
 
