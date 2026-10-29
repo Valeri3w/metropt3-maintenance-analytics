@@ -479,10 +479,16 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 from typing import Any
 
 from psycopg import Connection
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from scripts.load_db import (
     ASSET_ID,
@@ -499,8 +505,6 @@ from scripts.load_db import (
     wait_for_database,
 )
 
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DEMO_DIR = PROJECT_ROOT / "data" / "demo"
 
 
@@ -597,8 +601,14 @@ Create `tests/test_load_demo_db.py`:
 
 ```python
 import json
+import subprocess
+import sys
+from pathlib import Path
 
 from scripts.load_demo_db import DEFAULT_DEMO_DIR
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_demo_manifest_identifies_one_complete_week_and_e03() -> None:
@@ -610,6 +620,19 @@ def test_demo_manifest_identifies_one_complete_week_and_e03() -> None:
     assert manifest["demo_end_utc"] == "2020-06-08T00:00:00+00:00"
     assert manifest["event_ids"] == ["E03"]
     assert manifest["telemetry_rows"] > 0
+
+
+def test_demo_loader_supports_direct_script_execution() -> None:
+    result = subprocess.run(
+        [sys.executable, "scripts/load_demo_db.py", "--help"],
+        cwd=PROJECT_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert "--confirm-reset" in result.stdout
 ```
 
 - [x] **Step 7: Run demo-loader tests**
@@ -972,7 +995,7 @@ Keep existing detailed README sections below this block. After deployment, Task 
 
 - 审计约 151 万行工业设备遥测和 4 条故障报告，处理时区、331 个采集缺口、字段类型与事件边界，并形成可重复的数据质量报告。
 - 设计 PostgreSQL 数据模型与 SQL 指标，构建事件时间轴、源索引与 CSV 行号追溯、周期筛选及 HTML/Markdown 维护周报。
-- 通过 31 项自动化测试和 n=1 人工/平台对比验证结果，明确区分标注异常区间、停机、维修时间与预测能力边界。
+- 通过 32 项自动化测试和 n=1 人工/平台对比验证结果，明确区分标注异常区间、停机、维修时间与预测能力边界。
 ```
 
 - [ ] **Step 5: Create the initial `docs/deployment.md`**
@@ -1155,7 +1178,7 @@ $env:DATABASE_URL = 'postgresql://metropt:metropt@127.0.0.1:5434/metropt'
 py -m pytest -q
 ```
 
-Expected: all 31 collected tests pass; no failures or errors. Record the exact
+Expected: all 32 collected tests pass; no failures or errors. Record the exact
 summary line. If the count differs, stop and reconcile the added tests before
 continuing. Then update any stale test-count statement in `README.md` and
 `docs/resume_bullets.md` to the observed result.
