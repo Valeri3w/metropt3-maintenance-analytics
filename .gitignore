@@ -7,6 +7,7 @@ __pycache__/
 .env
 .streamlit/secrets.toml
 test-results/
+artifacts/screenshots/public-headless-debug.png
 
 data/raw/
 *.dump

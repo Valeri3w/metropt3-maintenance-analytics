@@ -2,7 +2,7 @@
 
 > 工业设备维护数据分析项目：把 151 万行遥测和 4 次故障报告转换成可追溯的维护周报。
 
-[部署与在线 Demo 说明](docs/deployment.md) · [一页案例](docs/case_study.md) · [90 秒演示脚本](docs/demo_script.md) · [数据质量审计](docs/data_quality.md)
+[在线 Demo](https://metropt3-maintenance-analytics.streamlit.app/) · [部署说明](docs/deployment.md) · [一页案例](docs/case_study.md) · [90 秒演示脚本](docs/demo_script.md) · [数据质量审计](docs/data_quality.md)
 
 **核心结果：** 4 次标注故障 · 最长事件 E03 为 52.5 h · 标注异常区间占有效监测时长 2.08%
 

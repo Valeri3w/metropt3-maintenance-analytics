@@ -1088,7 +1088,7 @@ git push -u origin main
 
 Replace `YOUR_ACCOUNT` with the authenticated GitHub account shown in the repository URL. Expected: the complete local commit history is pushed to `main`.
 
-- [ ] **Step 2: Create the Neon database**
+- [x] **Step 2: Create the Neon database**
 
 Create a free Neon PostgreSQL project named `metropt3-demo`. Copy the pooled connection string into the current PowerShell session:
 
@@ -1098,7 +1098,7 @@ $env:DEMO_DATABASE_URL = 'postgresql://USER:PASSWORD@HOST/DATABASE?sslmode=requi
 
 Use the actual values displayed by Neon. Do not write this value into a tracked file.
 
-- [ ] **Step 3: Load the one-week demo data into Neon**
+- [x] **Step 3: Load the one-week demo data into Neon**
 
 Run:
 
@@ -1108,7 +1108,7 @@ py scripts/load_demo_db.py --dsn $env:DEMO_DATABASE_URL --confirm-reset
 
 Expected: `status: ok`, one event `E03`, and a telemetry count matching `data/demo/manifest.json`.
 
-- [ ] **Step 4: Create the Streamlit Community Cloud app**
+- [x] **Step 4: Create the Streamlit Community Cloud app**
 
 In Streamlit Community Cloud:
 
@@ -1126,7 +1126,7 @@ METROPT_DEMO_MODE = "true"
 
 Use the exact Neon URL from `DEMO_DATABASE_URL` in the first value. Replace the example URL completely; do not keep the words `USER`, `PASSWORD`, `HOST`, or `DATABASE`.
 
-- [ ] **Step 5: Verify the deployment before editing README**
+- [x] **Step 5: Verify the deployment before editing README**
 
 Open the deployed app in a private browser window and verify:
 
@@ -1142,7 +1142,7 @@ Copy the public Streamlit URL into PowerShell:
 $env:PUBLIC_DEMO_URL = 'https://YOUR_APP.streamlit.app'
 ```
 
-- [ ] **Step 6: Add the verified public Demo link to README**
+- [x] **Step 6: Add the verified public Demo link to README**
 
 Use `apply_patch` to replace the first standalone line containing `[部署与在线 Demo 说明](docs/deployment.md)` with:
 
@@ -1152,7 +1152,7 @@ Use `apply_patch` to replace the first standalone line containing `[部署与在
 
 Replace the literal token `PUBLIC_DEMO_URL` with the exact value stored in `$env:PUBLIC_DEMO_URL`, without angle brackets or quotation marks. Do not commit the token or any `$env:` reference itself.
 
-- [ ] **Step 7: Commit and push the verified Demo link**
+- [x] **Step 7: Commit and push the verified Demo link**
 
 ```powershell
 git add README.md
@@ -1213,7 +1213,7 @@ git ls-files | ForEach-Object { Get-Item $_ } | Sort-Object Length -Descending |
 
 Expected: no tracked file reaches GitHub's 100 MB per-file limit.
 
-- [ ] **Step 5: Verify the public app health endpoint**
+- [x] **Step 5: Verify the public app health endpoint**
 
 Run:
 
@@ -1223,7 +1223,7 @@ Invoke-RestMethod "$env:PUBLIC_DEMO_URL/_stcore/health"
 
 Expected: `ok`.
 
-- [ ] **Step 6: Capture final public evidence**
+- [x] **Step 6: Capture final public evidence**
 
 Run:
 
@@ -1246,7 +1246,7 @@ rg -n "PUBLIC_DEMO_URL|YOUR_APP|YOUR_ACCOUNT|USER:PASSWORD" README.md docs/case_
 Expected: no output. Then inspect the first 40 lines of `README.md` and confirm
 the online Demo link is the verified public URL rather than a placeholder.
 
-- [ ] **Step 8: Commit final verification evidence**
+- [x] **Step 8: Commit final verification evidence**
 
 ```powershell
 git add README.md docs/resume_bullets.md artifacts/screenshots/public-demo-desktop.png
